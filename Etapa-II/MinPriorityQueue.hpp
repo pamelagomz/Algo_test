@@ -16,20 +16,20 @@ class TreeNode {
     TreeNode* parent;
     TreeNode* left;
     TreeNode* right;
-    char symbol;
+    string symbol;
     double probability;
     
 public:
     
     //Constructor
     TreeNode();
-    TreeNode(char symbol, double probability);
+    TreeNode(string symbol, double probability);
 
-    TreeNode *CreateNode(char symbol, double probability);
+    TreeNode *CreateNode(string symbol, double probability);
 
     //Funciones publicas para acceder a los valores de los nodos
-    char getSymbol();
-    void setSymbol(char newSymbol){symbol = newSymbol;}
+    string getSymbol();
+    void setSymbol(string newSymbol){symbol = newSymbol;}
     
     double getProbability();
     void setProbability(double newProbability){probability = newProbability;}
@@ -44,25 +44,25 @@ TreeNode::TreeNode(){
     parent = nullptr;
     left = nullptr;
     right = nullptr;
-    symbol = ' ';
+    symbol = "";
     probability = 0.0;
     
 }
 
-TreeNode::TreeNode(char symbol, double probability){
-    this->symbol = symbol;
-    this->probability = probability;
+TreeNode::TreeNode(string symbol, double probability){
     parent = nullptr;
     left = nullptr;
     right = nullptr;
+    this->symbol = symbol[0];
+    this->probability = probability;
 }
 
-TreeNode *TreeNode::CreateNode(char symbol, double probability){
+TreeNode *TreeNode::CreateNode(string symbol, double probability){
     TreeNode* newNode = new TreeNode(symbol, probability);
     return newNode;
 }
 
-char TreeNode::getSymbol(){
+string TreeNode::getSymbol(){
     return symbol;
 }
 
